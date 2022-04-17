@@ -19,16 +19,17 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             tools:listitem="@layout/list_item" />
 
         <ImageView
             android:id="@+id/status"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
+            android:visibility="gone"
             app:ApiStatus="@{viewModel.status}"
             tools:src="@mipmap/ic_launcher_round" />
 

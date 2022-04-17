@@ -14,13 +14,15 @@ data class Result(
     val stories: Stories,
     val thumbnail: Thumbnail,
     val urls: List<Url>
-) { fun toCharacter(): Character{
+) {
+    fun toCharacter(): Character {
         return Character(
             id = id,
             description = description,
             name = name,
             thumbnail = thumbnail.path,
-            thumbnailExt=thumbnail.extension,
+            thumbnailExt = thumbnail.extension,
+            modified = modified.substringBefore('T'),
             img = "${thumbnail.path}/portrait_xlarge.${thumbnail.extension}"
         )
     }

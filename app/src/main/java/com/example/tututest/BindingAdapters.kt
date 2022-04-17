@@ -4,9 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.tututest.model.Character
 import com.example.tututest.viewmodel.ApiStatus
 
 @BindingAdapter("imageUrl")
@@ -36,15 +34,3 @@ fun bindStatus(imgView: ImageView, status: ApiStatus?) {
         }
     }
 }
-
-//@BindingAdapter("listData")
-//fun bindRecyclerView(recyclerView: RecyclerView,
-//                     data: MutableList<Character>) {
-//    val adapter = recyclerView.adapter as CharacterListAdapter
-//    (recyclerView.adapter as BindableAdapter).setData(data)
-//    adapter.submitList(data)
-//}
-//
-//interface BindableAdapter {
-//    fun setData(data: MutableList<Character>)
-//}

@@ -1,24 +1,12 @@
 package com.example.tututest
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tututest.databinding.ListItemBinding
 import com.example.tututest.model.Character
-import android.widget.ArrayAdapter
-
-
-
-
-//class ListAdapter(
-////    private val characters: MutableList<Character>
-//): RecyclerView.Adapter<ListAdapter.ItemViewHolder>() {
 
 interface CharacterActions {
 
@@ -38,25 +26,7 @@ class CharacterListAdapter(private val clickListener: CharacterActions): ListAda
             return oldItem.name == newItem.name
         }
 
-
     }
-
-
- lateinit var context: Context
-
-    var characters = mutableListOf<Character>()
-        set(newValue) {
-            field = newValue
-            notifyDataSetChanged()
-            Log.d("??", "nv $newValue")
-    }
-//
-//    override fun setData(data: MutableList<Character>) {
-//        characters = data
-//        notifyDataSetChanged()
-//    }
-
-
 
     class ItemViewHolder(
         private val binding: ListItemBinding
@@ -73,23 +43,16 @@ class CharacterListAdapter(private val clickListener: CharacterActions): ListAda
         }
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListAdapter.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemBinding.inflate(inflater, parent, false)
-        this.context = parent.context
         return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(
-            currentList[position],
+           currentList[position],
            clickListener
         )
-        Log.d("??", "onBindViewHolder char is ${getItem(position)}")
     }
-
-
-
-
 }

@@ -19,8 +19,9 @@
 
         <ImageView
             android:id="@+id/img"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:cropToPadding="true"
             app:imageUrl="@{character.img}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,13 +29,14 @@
 
         <TextView
             android:id="@+id/name"
-            android:text="@{character.name}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:ellipsize="end"
             android:lines="1"
+            android:text="@{character.name}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/img"
             app:layout_constraintTop_toTopOf="@id/img"
@@ -42,13 +44,15 @@
 
         <TextView
             android:id="@+id/description"
-            android:text="@{character.description}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="2dp"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:textSize="14sp"
+            android:maxLines="2"
+            android:text="@{character.description}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/name"
@@ -59,7 +63,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="img,description" />
+            app:circularflow_radiusInDP="50dp"
+            app:constraint_referenced_ids="img,description"
+            tools:layout_editor_absoluteX="402dp"
+            tools:layout_editor_absoluteY="76dp" />
 
         <Space
             android:layout_width="wrap_content"
